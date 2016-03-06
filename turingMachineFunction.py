@@ -22,7 +22,7 @@ def run_turing_machine(path, inputString, verbose=False):
             print ' '.join(tape)
         try:
             ((new_state, rewrite), direction) = transitions[(state, tape[tape_head])]
-                # break if we have found a terminal state
+            # break if we have found a terminal state
             if (new_state == accept) or (new_state == reject):
                 break
             # if we are at the end of the tape, add an extra blank to the tape (tape_head + 1)
