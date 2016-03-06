@@ -51,12 +51,7 @@ class TuringMachine(object):
             except KeyError:
                 break # can not possibly be in accept state
 
-        if new_state == self.accept:
-            return True
-        else:
-            return False
-        return
-
+        return new_state == self.accept
 
 if __name__ == '__main__':
 
