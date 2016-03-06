@@ -1,5 +1,7 @@
 import sys
 
+# really no need for the added bloat
+
 class TuringMachine(object):
 
     def __init__(self):
