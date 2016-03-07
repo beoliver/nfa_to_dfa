@@ -17,11 +17,17 @@ def run_turing_machine(path, inputString, verbose=False):
     tape_head = 0
     state = start
     while True:
-        if verbose: print(' '.join(tape))
+        if verbose:
+            tape_pre  = ' '.join(tape[:tape_head])
+            tape_at   = " [" + tape[tape_head] + "] "
+            tape_post = ' '.join(tape[tape_head+1:])
+            if tape_head > 0:
+                tape_pre = " " + tape_pre
+            print(tape_pre + tape_at + tape_post)            
         ((state, rewrite), direction) = transitions.get((state, tape[tape_head]), ((reject,'_'),'L'))
         if state in [accept, reject]:
             return state == accept
-        if tape_head == len(tape):
+        if tape_head == len(tape)-1:
             tape.append('_') # pretend the list is infinite
         tape[tape_head] = rewrite
         if direction == 'R':
