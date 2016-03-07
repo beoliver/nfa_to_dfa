@@ -39,6 +39,7 @@ if __name__ == '__main__':
 
     if len(args) < 3:
         print("<filepath> <string> [--verbose]")
+        sys.exit()
 
     if len(args) == 4:
         if args[3] == "-v" or args[3] == "--verbose":
